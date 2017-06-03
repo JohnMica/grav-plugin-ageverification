@@ -3,9 +3,10 @@ namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
 
-class CookiesNoticePlugin extends Plugin
+class CookiesAgeVerificationPlugin extends Plugin
 {
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
             'onPluginsInitialized' => ['onPluginsInitialized', 0],
         ];
@@ -37,21 +38,21 @@ class CookiesNoticePlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        if ($this->config->get('plugins.cookiesnotice.jqcookie')==true){
-            $this->grav['assets']->addJs('plugin://cookiesnotice/assets/js/jquery.cookie.js');
+        if ($this->config->get('plugins.cookiesnotice.jqcookie')==true) {
+            $this->grav['assets']->addJs('plugin://ageverification/assets/js/jquery.cookie.js');
         }
 
-        $this->grav['assets']->addJs('plugin://cookiesnotice/assets/js/cookiesnotice.js');
-        $this->grav['assets']->addCss('plugin://cookiesnotice/assets/css/cookiesnotice.css');
+        $this->grav['assets']->addJs('plugin://ageverification/assets/js/ageverification.js');
+        $this->grav['assets']->addCss('plugin://ageverification/assets/css/ageverification.css');
 
-        if ($this->config->get('plugins.cookiesnotice.customcss')==true){
-            $this->grav['assets']->addCss($this->config->get('plugins.cookiesnotice.urlcss'));
+        if ($this->config->get('plugins.ageverification.customcss')==true) {
+            $this->grav['assets']->addCss($this->config->get('plugins.ageverification.urlcss'));
         }
 
         $twig = $this->grav['twig'];
-        $twig->twig_vars['cookiesnotice_markup'] = $twig->twig->render('partials/cookiesnotice.html.twig', array(
-            'cookiesnotice_position' => strtolower($this->config->get('plugins.cookiesnotice.position')),
-            'cookiesnotice_url' => $this->config->get('plugins.cookiesnotice.url')
+        $twig->twig_vars['ageverification_markup'] = $twig->twig->render('partials/ageverification.html.twig', array(
+            'ageverification_position' => strtolower($this->config->get('plugins.ageverification.position')),
+            'ageverification_url' => $this->config->get('plugins.ageverification.url')
         ));
     }
 }
