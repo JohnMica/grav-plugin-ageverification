@@ -1,12 +1,3 @@
-let checkAge = function (){
-
-	// get the input date and concat to array
-	// use moment to stringify and return a date
-	// check the date difference is more or equal to 18 years
-
-	// if check is true close modal and acces the page
-	// if false redirect to google.ro
-}
 $(document).ready(function() {
   var age = {};
 
@@ -14,14 +5,14 @@ $(document).ready(function() {
   $('#ageModal').modal('show');
   initAge();
 
-/*  // check if cookie for validAge exists..
+ // check if cookie for validAge exists..
   if (cookie.get('validAge') == 'true') {
     return true;
   } else {
     // doesn't exist so lets make them enter a birthday...
     $('#ageModal').modal('show');
     initAge();
-  }*/
+  }
 
   // starts the age verification process
   function initAge() {

@@ -2,6 +2,13 @@ en:
   PLUGINS:
     AGE_VERIFICATION:
       DESC: 'Pentru a accesa acest site trebuie sa aveti minim 18 ani. Va rugam selectati data nasterii mai jos.'
+
       CALENDAR: 'select'
-      LINK: 'Learn more'
-      DIMISS: 'Close'
+      LINK: './termeni'
+      VERIFY: 'verifica'
+      DIMISS: 'iesire'
+      DENIED: 'nu aveti varsta legala'
+      ACCEPT: 'aveti varsta legala, va multumim.'
+      YEAR: 'anul'
+      MONTH: 'luna'
+      DAY: 'ziua'
