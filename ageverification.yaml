@@ -1,0 +1,6 @@
+enabled: true
+jqcookie: true
+possition: top
+url: 'http://example.com/terms'
+customcss: false
+urlcss: 'http://example.com/assets/css/style.css'
