@@ -1,94 +1,64 @@
-$(document).ready(function() {
-  var age = {};
 
-  // For use without cookies
-  $('#ageModal').modal('show');
-  initAge();
 
- // check if cookie for validAge exists..
-  if (cookie.get('validAge') == 'true') {
-    return true;
-  } else {
-    // doesn't exist so lets make them enter a birthday...
-    $('#ageModal').modal('show');
-    initAge();
-  }
+$( document ).ready( function() {
 
-  // starts the age verification process
-  function initAge() {
-    var month = 0;
-    var day = 0;
-    var year = 0;
+	var userDay = $( 'input[name="verify-day"]' );
+	var userMOnth = $( 'input[name="verify-month"]' );
+	var UserYear = $( 'input[name="verify-year"]' );
+	var input = Array(document.querySelectorAll('#ageModal input'));
 
-    $("#age-submit").on("click", function() {
-      age['month'] = $("#verify-month").val();
-      age['day'] = $("#verify-day").val();
-      age['year'] = $("#verify-year").val();
-      checkDate();
-    });
-  }
 
-  // Check to see if user entered a valid date...
-  function checkDate() {
-    if (age.month == 'none' || age.day == 'none' || age.year == 'none') {
-      // Fade in the error...
-      $('#modal-error').css('visibility', 'visible').hide().fadeIn('slow');
+	if ( $.cookie( 'age' ) != 'varstalegala' ) {
 
-      // changes the background color of the select if invalid
-      if (age.month == 'none') {
-        $("#verify-month").css('background', 'rgba(223,32,44,0.5)');
-        // Look for change of value and change background color when valid
-        $("#verify-month").on('change', function() {
-          if ($("#verify-month").val() == 'none') {
-            $("#verify-month").css('background', 'rgba(223,32,44,0.5)');
-          } else {
-            $("#verify-month").css('background', 'white');
-          }
-        });
-      }
 
-      // changes the background color of the select if invalid
-      if (age.day == 'none') {
-        $("#verify-day").css('background', 'rgba(223,32,44,0.5)');
-        // Look for change of value and change background color when valid
-        $("#verify-day").on('change', function() {
-          if ($("#verify-day").val() == 'none') {
-            $("#verify-day").css('background', 'rgba(223,32,44,0.5)');
-          } else {
-            $("#verify-day").css('background', 'white');
-          }
-        });
-      }
+		var body = $('body');
+		$(body).addClass('addOverflow ');
+		$( '#ageModal' ).css( 'visibility', 'visible' ).css( 'opacity', '1' ).hide().fadeIn( 'slow' );
+		$( '#age-submit' ).on( 'click', function() {
+			var enteredDOB = $( userDay ).val() + "/" + $( userMOnth ).val() + "/" + $( UserYear ).val();
+			var age = moment( enteredDOB, 'DD/MM/YYYY', true ).format();
 
-      // changes the background color of the select if invalid
-      if (age.year == 'none') {
-        $("#verify-year").css('background', 'rgba(223,32,44,0.5)');
-        // Look for change of value and change background color when valid
-        $("#verify-year").on('change', function() {
-          if ($("#verify-year").val() == 'none') {
-            $("#verify-year").css('background', 'rgba(223,32,44,0.5)');
-          } else {
-            $("#verify-year").css('background', 'white');
-          }
-        });
-      }
-    } else {
-      oldEnough();
-    }
-  }
+			if ( age === 'NaN' || age === '' ) {
+				$( "#modal-error" ).css( 'visibility', 'visible' ).css( "opacity", "1" ).show().fadeIn( "slow" );
+			}
+			else {
+				$( "#modal-error" ).css( 'visibility', 'hidden' ).css( "opacity", "0" ); //hide if visible
+				if ( parseInt( age, 10 ) >= 18 ) {
+					$( "#modal-error" ).css( 'visibility', 'hidden' ).css( "opacity", "0" ); //hide if visible
 
-  // Compares age entered with todays date 21 years ago...
-  function oldEnough() {
-    var ageLimit = moment().subtract(21, 'years').calendar();
-    var birthDate = age.month + " " + age.day + " " + age.year;
-    var oldEnough = moment(birthDate, "MM DD YYYY").isBefore(ageLimit, 'day');
+					if ( $( '#remember' ).is( ":checked" ) ) {
+						$.cookie( 'age', 'varstalegala', {
+							expires: 365,
+							path: '/'
+						} );
+						$( '#ageModal' ).hide().fadeOut( 'fast' ).remove();
 
-    if (oldEnough) {
-      //cookie.set('validAge', 'true');
-      $('#ageModal').modal('hide');
-    } else {
-      //cookie.set('validAge', 'false');
-      console.log("it is false");
-    }
-  }
-});
+					} else {
+						$.cookie( 'age', 'varstalegala', {
+							expires: 1,
+							path: '/'
+						} );
+
+					}
+					$( '#ageModal' ).hide().fadeOut( 'fast' );
+						$(body).removeClass('addOverflow ');
+					$( '#ageModal' ).submit();
+
+
+				} else {
+					$( "#modal-error" ).css( 'visibility', 'visible' ).css( 'opacity', '1' ).show().fadeIn( "fast" );
+
+				}
+			}
+		} );
+
+		if ( null !== $.cookie( 'age' ) ) {
+			return;
+		}
+
+	}
+	$( '#ageModal' ).css( 'visibility', 'hidden' ).css( "opacity", "0" );
+
+} );
+
+

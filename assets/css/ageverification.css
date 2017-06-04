@@ -1,136 +1,154 @@
-.modal-backdrop {
-    opacity: 0.75 !important;
+#modal-error {
+    background: rgba(223, 32, 44, 0.5);
+    visibility: hidden;
+    opacity: 0;
 }
 
-@media only screen and (max-width:767px) {
-    #modal-error {
-        background: rgba(223, 32, 44, 0.5);
-        margin-top: 15px;
-        margin-left: 15px;
-        width: 90%;
-        margin-bottom: 15px;
-    }
-    #ageModal {
-        .modal-dialog {
-            border: 0;
-            border-box-shadow: 0;
-            min-width: 350px;
-            .modal-content {
-                height: 100%;
-                background: white;
-                border: none;
-                padding: 15px;
-                .modal-body {
-                    background: white;
-                    border-radius: 5px;
-                    width: 100%;
-                    height: 100%;
-                    #modal-age-limit {
-                        >h1 {
-                            padding: 0;
-                            margin: 0;
-                            font-size: 25px;
-                            text-align: center;
-                        }
-                    }
-                    #age-submit {
-                        float: right;
-                        border: 2px solid black;
-                        border-radius: 0;
-                        background-color: #DF202C;
-                        color: white;
-                        &:hover {
-                            background-color: darken(#DF202C, 15%);
-                        }
-                    }
-                }
-                .modal-footer {
-                    border-top: 0;
-                    text-align: center;
-                }
-            }
-        }
-    }
+#modal-error h4 {
+    text-transform: none;
+    color: white;
 }
 
-@media only screen and (min-width: 768px) {
-    #modal-error {
-        background: rgba(223, 32, 44, 0.5);
-        padding: 2px;
-        width: 355px;
-        margin-left: 13px;
-        padding-left: 15px;
-        margin-bottom: 15px;
-    }
-    #ageModal {
-        .modal-dialog {
-            border: 0;
-            min-width: 350px;
-            height: 750px;
-            width: 750px;
-            .modal-content {
-                height: 100%;
-                background: white;
-                border: none;
-                padding: 15px 15px 0px 15px;
-                .modal-body {
-                    width: 100%;
-                    height: 100%;
-                    #modal-age-limit {
-                        >h1 {
-                            padding: 0;
-                            margin: 0;
-                            font-size: 25px;
-                        }
-                    }
-                    .form-area {
-                        margin-top: 180px;
-                        margin-left: 225px;
-                        margin-right: 40px;
-                        #verify-month {
-                            width: 300px;
-                            margin-bottom: 5px;
-                        }
-                        #verify-day {
-                            margin-left: 18px;
-                            margin-bottom: 5px;
-                            width: 300px;
-                        }
-                        #verify-year {
-                            margin-left: 12px;
-                            margin-bottom: 5px;
-                            width: 300px;
-                        }
-                    }
-                    #modal-age-limit {
-                        >h4 {
-                            margin-top: 25px;
-                        }
-                    }
-                    #age-submit-area {
-                        #age-submit {
-                            float: right;
-                            border: 2px solid black;
-                            border-radius: 0;
-                            background: red;
-                            color: white;
-                            margin-top: 15px;
-                            margin-right: 35px
-                        }
-                    }
-                }
-                .modal-footer {
-                    border-top: 0;
-                    padding: 0;
-                    margin-left: -30px;
-                    margin-right: -15px;
-                    border-top: 2px solid gray;
-                    background: rgba(white, .5);
-                    text-align: center;
-                    position: absolute;
-                    bottom: 0;
-                }
-            }
-        }
-    }
+#ageModal {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#ageModal .modal-dialog {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 1em;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgba(156, 109, 4, 0.8)
+}
+
+#ageModal .modal-content {
+    top: -5em;
+    color: white;
+}
+
+#ageModal .age-limit h1 {
+    text-decoration: none;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+#ageModal .text-important h4 {
+    text-transform: none;
+    color: white;
+}
+
+#ageModal .formular {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    margin-bottom: 2em;
+    padding: 0;
+}
+
+#ageModal .form-group {
+    display: inline;
+    width: auto;
+    text-align: center;
+}
+
+#ageModal .form-group input {
+    padding: 10px;
+    min-width: 60px;
+    width: auto;
+    text-align: center;
+    font-size: 1.2em;
+    border: none;
+    background-color: #7F8248;
+    color: #d4d5c5;
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.75);
+    background-clip: padding-box;
+}
+
+#ageModal .form-group input::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+#ageModal input:focus::placeholder {
+    color: transparent;
+}
+
+#ageModal .form-group input:focus {
+    outline: 1px solid rgba(156, 109, 4, 1);
+}
+
+#ageModal .form-group label {
+    text-align: center;
+    width: auto;
+}
+
+#ageModal button#age-submit {
+    position: relative;
+    background-color: #7F8248;
+    border: none;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    padding: 12px 6px;
+    width: 150px;
+    border-radius: 2px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.75);
+}
+
+#ageModal button#age-submit:focus {
+    outline: none;
+}
+
+#ageModal button#age-submit:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#ageModal button#age-submit:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+#ageModal .modal-footer {
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#ageModal .remember {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+
+
+/*body stop scrolling*/
+
+.addOverflow {
+    overflow-y: hidden !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

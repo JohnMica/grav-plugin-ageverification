@@ -1,6 +1,7 @@
 enabled: true
+url: 'http://example.com/terms'
 jqcookie: true
-possition: top
+language: ro
 url: 'http://example.com/terms'
 customcss: false
 urlcss: 'http://example.com/assets/css/style.css'

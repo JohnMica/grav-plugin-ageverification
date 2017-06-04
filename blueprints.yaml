@@ -36,21 +36,21 @@ form:
           type: bool
         help: 'The jQuery Cookie PLugin v1.4.1 has to be loaded. If an error occurs, load it manually.'
 
-      position:
-        type: select
-        label: Position
-        size: small
-        default: top
-        options:
-          top: Top
-          bot: Bottom
-        help:
+    #   position:
+    #     type: select
+    #     label: Position
+    #     size: small
+    #     default: top
+    #     options:
+    #       top: Top
+    #       bot: Bottom
+    #     help:
 
       url:
         type: text
         label: 'Policy terms'
         size: medium
-        placeholder: 'http://example.com/policy'
+        placeholder: 'http://example.com/terms'
         help: 'Add here the url that points the full policy page.'
 
       customcss:

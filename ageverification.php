@@ -3,7 +3,7 @@ namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
 
-class CookiesAgeVerificationPlugin extends Plugin
+class AgeVerificationPlugin extends Plugin
 {
     public static function getSubscribedEvents()
     {
@@ -38,10 +38,10 @@ class CookiesAgeVerificationPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        if ($this->config->get('plugins.cookiesnotice.jqcookie')==true) {
+        if ($this->config->get('plugins.ageverification.jqcookie')==true) {
             $this->grav['assets']->addJs('plugin://ageverification/assets/js/jquery.cookie.js');
         }
-
+        $this->grav['assets']->addJs('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js');
         $this->grav['assets']->addJs('plugin://ageverification/assets/js/ageverification.js');
         $this->grav['assets']->addCss('plugin://ageverification/assets/css/ageverification.css');
 

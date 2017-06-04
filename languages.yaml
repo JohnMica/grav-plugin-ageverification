@@ -1,14 +1,14 @@
-en:
+ro:
   PLUGINS:
     AGE_VERIFICATION:
       DESC: 'Pentru a accesa acest site trebuie sa aveti minim 18 ani. Va rugam selectati data nasterii mai jos.'
-
-      CALENDAR: 'select'
       LINK: './termeni'
-      VERIFY: 'verifica'
-      DIMISS: 'iesire'
-      DENIED: 'nu aveti varsta legala'
-      ACCEPT: 'aveti varsta legala, va multumim.'
-      YEAR: 'anul'
-      MONTH: 'luna'
-      DAY: 'ziua'
+      VERIFY: 'Verifica'
+      DIMISS: 'Iesire'
+      DENIED: 'Nu aveti varsta legala'
+      ACCEPT: 'Aveti varsta legala, va multumim.'
+      YEAR: 'Anul'
+      MONTH: 'Luna'
+      DAY: 'Ziua'
+      TITLE: 'Verificarea varstei'
+      REMEMBER: 'Tine-ma minte'
