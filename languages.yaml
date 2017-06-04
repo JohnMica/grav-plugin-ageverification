@@ -12,3 +12,17 @@ ro:
       DAY: 'Ziua'
       TITLE: 'Verificarea varstei'
       REMEMBER: 'Tine-ma minte'
+en:
+  PLUGINS:
+    AGE_VERIFICATION:
+      DESC: 'To acces this website you need to be at least 18 years old. Please verify your age.'
+      LINK: './terms'
+      VERIFY: 'Check Age'
+      DIMISS: 'Cancel'
+      DENIED: "You don't have the legal age"
+      ACCEPT: 'You have the legal age, thank you.'
+      YEAR: 'Year'
+      MONTH: 'Month'
+      DAY: 'Day'
+      TITLE: 'Age check'
+      REMEMBER: 'Remember me'
